@@ -1,0 +1,16 @@
+version: '2'
+services:
+  mongo_db:
+    container_name: mongo_db_srv
+    image: mongo:3.4.1
+    restart: always
+    ports:
+      - 27017:27017
+  node_js:
+    container_name: node_js_srv
+    image: dev.aspectgaming.com/lobby:demo.2017.01.04
+    restart: always
+    extra_hosts:
+      - "mongodb:172.31.2.50"
+    ports:
+      - 3000:3000

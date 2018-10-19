@@ -1,0 +1,27 @@
+{
+  "name": "aspectdemo",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "async": "^2.1.4",
+    "dotenv": "^2.0.0",
+    "keystone": "^4.0.0-beta.4",
+    "lodash": "^4.17.3",
+    "node-sass": "^4.1.1",
+    "node-sass-middleware": "^0.10.0",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-keystone": "^3.0.0",
+    "eslint-plugin-react": "^6.8.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.0.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-watch": "^4.3.11"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node keystone.js"
+  }
+}

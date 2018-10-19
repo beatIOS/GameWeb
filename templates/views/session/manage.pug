@@ -1,0 +1,26 @@
+extends ../../layouts/default
+
+block content
+	table.table.table-striped(style="margin-top: 120px;")
+		thead
+			tr
+				th Name
+				th Account
+				th Portal link
+				th TestAccount
+
+		tbody
+			for useInfo,position in UserInfoData
+				form(method="post",action = '/updateTestAccount/' + useInfo.email)
+					tr
+						td#name #{useInfo.name.last}
+						td#email #{useInfo.email}
+						td#Portallink
+							input(type='text', name='portalLink', value= useInfo.portalLink)
+						td#inputValue
+							input(type='text', name='testAccount', id = position, value= useInfo.testAccount)
+						td
+							button(type='submit').btn.btn-primary update
+						td
+							form(method="post",action = '/deleteAccount/' + useInfo.email)
+								button(type='submit').btn.btn-primary delete

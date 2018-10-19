@@ -1,0 +1,83 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0,user-scalable=no")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="author", content="AspectGaming")
+		meta(name="description", content="ASPECTGAMING")
+		title= title || 'AspectDemo'
+		if gameiomAddress
+			link(rel="shortcut icon", href="/images/gameiom/favicon.ico", type="image/x-icon")
+		else
+			link(rel="shortcut icon", href="/images/aspectgaming/favicon.ico", type="image/x-icon")
+		link(href="/styles/site.css", rel="stylesheet")
+
+		block css
+	block head
+
+	body
+		block bodyDesc
+		block navigationTg
+			nav.fh5co-nav(role='navigation')
+				.container
+					.fh5co-top-logo
+						if gameiomAddress
+							img(width='272px',height = '57px', src='../../images/gameiom/logo.png', alt=brand)#gameiomTitleLogo
+						else
+							img(width='240px',height = '70px', src='../../images/aspectgaming/logo.svg', alt=brand)
+					.fh5co-top-use
+						if user
+							#nav_loginContent
+								.row
+									.col-md-6#welcomeBtn
+										.th_welcome
+											p.nav_welcome Hi #{user.name.first}
+									.col-md-6#welcomeBtn
+										.th_login
+											form(action='/signout',role="form")
+												button(type='submit')#navBtn.btn.btn-primary Sign Out
+
+		.bodyContent
+			block content
+
+		if gameiomAddress
+			.navbar.navbar-default.navbar-fixed-bottom
+				#footBody
+					.navbar-inner.navbar-content-center
+						.container: #footer
+							#foot_table
+								.row
+									.col-md-6
+										#foot_logo
+											img(width='187px',height = '45px',src='../../images/gameiom/foot_logo.png')
+									.col-md-6
+										#gameiomContactContent 
+											p#ContactUsContent E-mail:support@gameiom.com 
+											p#gameiomfoot_desc © 2017 GAMEIOM | All Rights Reserved
+			
+		else
+			.navbar.navbar-default.navbar-fixed-bottom
+				#footBody
+					.navbar-inner.navbar-content-center
+						.container: #footer
+							#foot_table
+								.row
+									.col-md-6
+										.fh5co-top-logo#foot_logo
+											img( width='150px',height = '50px', src='../../images/aspectgaming/logo.svg', alt=brand)
+									.col-md-6
+										p#foot_desc © 2017 ASPECT GAMING | All Rights Reserved
+		.footContent
+			block footerContent
+
+	script(src='/js/jquery/jquery-1.11.3.min.js')
+	script(src='/js/bootstrap/bootstrap.min.js')
+	script(src="../js/jquery/jquery-2.1.4.js")
+	if user && user.canAccessKeystone
+		script(src='/keystone/js/content/editor.js')
+
+	block js

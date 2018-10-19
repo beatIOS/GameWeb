@@ -1,0 +1,5 @@
+extends ../layouts/default
+
+block content
+	.container: .jumbotron
+		iframe#content(name='content', onload='Javascript:SetWinHeight(this)',src='http://www.aspectgaming.com/' frameborder='0', scrolling='no', width='100%',height='720px')

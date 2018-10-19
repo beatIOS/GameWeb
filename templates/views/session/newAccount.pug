@@ -1,0 +1,28 @@
+extends ../../layouts/default
+
+block content
+	div(style="padding: 100px 100px 10px;margin-top: 180px;")#signinBody
+		.row
+			.center-block.center-block-Content
+				form.bs-example.bs-example-form(method="post",action='/addAccount', novalidate,role="form")
+					.input-group
+						span.input-group-addon
+						input.form-control(type='text', name='PortalLink', id='portalLink', value='Portal Link')
+					br
+					.input-group
+						span.input-group-addon
+							img(src='../../images/head.png', alt=brand)
+						input.form-control(type='text', name='email', id='email', placeholder='Account')
+					br
+					.input-group
+						span.input-group-addon
+							img(src='../../images/lock.png', alt=brand)
+						input.form-control(type='password', name='password', id='password', placeholder='Password')
+					br
+					.input-group
+						span.input-group-addon
+						input.form-control(type='text', name='TestAccount', id='TestAccount', value='Test Account')
+					br
+					.input-group
+						.btn-container
+							button(type='submit')#signinBtn.btn.btn-primary.btn-lg.btn-block Register
